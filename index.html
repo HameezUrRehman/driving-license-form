@@ -17,7 +17,7 @@
         </p>
         <p>
             <label for="n1">How old are you?</label>
-            <input type="number" min="12" max="120" step="1" id="n1" name="age" pattern="\d+">
+            <input type="number" min="12" max="120" step="1" id="n1" name="age" required pattern="\d+">
         </p>
         <p>
             <label for="t1">How much experience do you have?<span aria-label="required">*</span></label>
@@ -33,18 +33,18 @@
         </p>
         <p>
             <label for="t2">What's your email address?</label>
-            <input type="email" id="t2" name="email">
+            <input type="email" id="t2" name="email" required>
         </p>
         <p>
-            <label for="theFile">CNIC Front:</label>
-            <input type="file" id="theFile" name="myFile">
+            <label for="cnicFront">CNIC Front:</label>
+            <input type="file" id="cnicFront" name="myFile" required>
         </p>
         <p>
-            <label for="theFile">CNIC Back:</label>
-            <input type="file" id="theFile" name="myFile">
+            <label for="cnicBack">CNIC Back:</label>
+            <input type="file" id="cnicBack" name="myFile" required>
         </p>
         <p>
-            <label for="t3">Leave a short message</label>
+            <label for="t3">Leave a short message (Optional...)</label>
             <textarea name="msg" id="t3" maxlength="140" rows="5"></textarea>
         </p>
         <p>

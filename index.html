@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <p>
+            <fieldset>
+                <legend>Do you have a driver's license?<span aria-label="required"></span></legend>
+                <input type="radio" required name="driver" id="r1" value="yes"><label for="r1">Yes</label>
+                <input type="radio" required name="driver" id="r2" value="no"><label for="r2">No</label>
+            </fieldset>
+        </p>
+        <p>
+            <label for="n1">How old are you?</label>
+            <input type="number" min="12" max="120" step="1" id="n1" name="age" pattern="\d+">
+        </p>
+        <p>
+            <label for="t1">How much experience do you have?<span aria-label="required">*</span></label>
+            <input type="text" id="t1" name="number" list="l1" required pattern="1|2|3|4|5|6">
+            <datalist id="l1">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+            </datalist>
+        </p>
+        <p>
+            <label for="t2">What's your email address?</label>
+            <input type="email" id="t2" name="email">
+        </p>
+        <p>
+            <label for="theFile">CNIC Front:</label>
+            <input type="file" id="theFile" name="myFile">
+        </p>
+        <p>
+            <label for="theFile">CNIC Back:</label>
+            <input type="file" id="theFile" name="myFile">
+        </p>
+        <p>
+            <label for="t3">Leave a short message</label>
+            <textarea name="msg" id="t3" maxlength="140" rows="5"></textarea>
+        </p>
+        <p>
+            <button>Submit</button>
+        </p>
+    </form>
+    <script>
+        const email = document.getElementById("t2");
+
+        email.addEventListener("input", (event) => {
+            if (email.validity.typeMismatch) {
+                email.setCustomValidity("I am expecting an email address!");
+            } else {
+                email.setCustomValidity("");
+            }
+        })
+    </script>
+</body>
+</html>

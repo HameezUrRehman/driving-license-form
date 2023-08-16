@@ -1,10 +1,10 @@
 form {
-    font: 1em sans-serif;
-    max-width: 320px;
+  font: 1em sans-serif;
+  max-width: 320px;
 }
 
 p > label {
-    display: block;
+  display: block;
 }
 
 input[type="text"],
@@ -12,15 +12,20 @@ input[type="email"],
 input[type="number"],
 textarea,
 fieldset {
-    width: 100%;
-    border: 1px solid #333;
-    box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #333;
+  box-sizing: border-box;
 }
 
 input[type="file"] {
-    margin-top: 3px;
+  margin-top: 3px;
+}
+
+input[type="file"]:invalid {
+  box-shadow: 0 0 5px 1px red;
+  width: 27%;
 }
 
 input:invalid {
-    box-shadow: 0 0 5px 1px red;
+  box-shadow: 0 0 5px 1px red;
 }

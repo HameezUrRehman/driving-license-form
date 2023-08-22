@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/action_page.php" onclick="sendData(); reset(); return false" method="POST">
+    <form action="/action_page.php" onclick="sendData(); reset(); return false">
         <p>
             <fieldset>
                 <legend>Do you have a driver's license?<span aria-label="required"></span></legend>
@@ -55,34 +55,27 @@
         const btn = document.querySelector("button");
         const email = document.getElementById("t2");
 
+        
+
         function sendData(data) {
-            console.log("Sending data");
-
             const XHR = new XMLHttpRequest();
+            const FD = new FormData();
 
-            const urlEncodeDataPairs = [];
-
-            for (const [name,value] of Object.entries(data)) {
-                urlEncodeDataPairs.push(
-                    `${encodeURIComponent(name)}=${encodeURIComponent(value)}`,
-                );
+            for (const [name, value] of Object.entries(data)) {
+                FD.append(name, value);
             }
 
-            const urlEncodeData = urlEncodeDataPairs.join("&").replace(/%20/g, "+");
-
             XHR.addEventListener("load", (event) => {
-                alert("Yeah! Data sent and response loaded.");
+                alert("Yeah! Data sent successfully");
             });
 
-            XHR.addEventListener("error", (event) => {
+            XHR.addEventListener("error" , (event) => {
                 alert("Oops! Something went wrong.");
             });
 
             XHR.open("POST", "https://example.com/cors.php");
 
-            XHR.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-            XHR.send(urlEncodeData)
+            XHR.send(FD);
         }
 
         btn.addEventListener("click", () => {
